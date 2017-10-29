@@ -1,2 +1,2 @@
-# TicTacToe
-TicTacToe game without IA (PvP)
+# MIT-Assignments
+C++ course MIT assignments
