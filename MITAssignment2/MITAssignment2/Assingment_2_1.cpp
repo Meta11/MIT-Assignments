@@ -6,23 +6,31 @@ using namespace std;
 
 const int LENGTH = 2;
 const int WIDTH = 3;
-
+//Parte 4
 int sum(const int x, const int y, const int z = 0, const int t = 0);
 double sum(const double x, const double y);
 int arbitrarySum(const int length, int totalNums[]);
+//Parte 5
 void Program_PI();
+//Parte 6
 void printArray(const int numbers[], const int totalLength);
 void reverseArray(int numbers[], const int totalLength);
 void transpose(const int input[][LENGTH], int output[][WIDTH]);
+void reverseArrayPointer(int *numbers, const int totalLength);
+//Parte 7
+int stringLength(char* strToCalc);
+void swap1(int &x, int &y);
+void swap2(int *x, int *y);
 
 int main() {
 
 	//Program_PI();
-	int num[WIDTH][LENGTH];
+	//Ejercicio 6
+	/*int num[WIDTH][LENGTH];
 	int numOut[LENGTH][WIDTH];
 
-	for (int i = 0; i < LENGTH; i++) {
-		for (int j = 0; j < WIDTH; j++) {
+	for (int i = 0; i < WIDTH; i++) {
+		for (int j = 0; j < LENGTH; j++) {
 			num[i][j] = i + j * 2;
 			cout << num[i][j] << " ";
 		}
@@ -33,15 +41,21 @@ int main() {
 
 	transpose(num, numOut);
 
-	for (int i = 0; i < WIDTH; i++) {
-		for (int j = 0; j < LENGTH; j++) {
+	for (int i = 0; i < LENGTH; i++) {
+		for (int j = 0; j < WIDTH; j++) {
 			cout << numOut[i][j] << " ";
 		}
 		cout << endl;
 	}
 
-	//printArray(num, length);
-	//reverseArray(num, length);
+	printArray(num, length);
+	reverseArray(num, length);*/
+
+	int x = 1, y = 2;
+	swap1(x, y);
+	cout << x << " " << y << endl;
+	swap2(&x, &y);
+	cout << x << " " << y << endl;
 
 	system("PAUSE");
 	return 0;
@@ -108,4 +122,36 @@ void transpose(const int input[][LENGTH], int output[][WIDTH]) {
 			output[i][j] = input[j][i];
 		}
 	}
+}
+
+void reverseArrayPointer(int *numbers, const int totalLength) {
+	int fooVar;
+
+	for (int i = 0; i < totalLength / 2; i++) {
+		fooVar = *(numbers + i);
+		*(numbers + i) = *(numbers + totalLength - i - 1);
+		*(numbers + totalLength - i - 1) = fooVar;
+	}
+}
+
+int stringLength(const char* strToCalc) {
+
+	int counter = 0;
+
+	while (*(strToCalc + counter) != '\0') {
+		counter++;
+	}
+	return counter;
+}
+
+void swap1(int &x, int &y) {
+	int fooVar = x;
+	x = y;
+	y = fooVar;
+}
+
+void swap2(int *x, int *y){
+	int fooVar = *x;
+	*x = *y;
+	*y = fooVar;
 }
