@@ -67,7 +67,7 @@ int main() {
 	swap3(&ptr1, &ptr2);
 	cout << *ptr1 << " " << *ptr2 << endl;*/
 
-	Program5();
+	//Program5();
 
 	system("PAUSE");
 	return 0;
