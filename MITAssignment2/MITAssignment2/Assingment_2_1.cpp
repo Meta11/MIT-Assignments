@@ -21,6 +21,9 @@ void reverseArrayPointer(int *numbers, const int totalLength);
 int stringLength(char* strToCalc);
 void swap1(int &x, int &y);
 void swap2(int *x, int *y);
+void swap3(int **ptr1, int **ptr2);
+
+void Program5();
 
 int main() {
 
@@ -51,11 +54,20 @@ int main() {
 	printArray(num, length);
 	reverseArray(num, length);*/
 
-	int x = 1, y = 2;
+	/*int x = 1, y = 2;
 	swap1(x, y);
 	cout << x << " " << y << endl;
 	swap2(&x, &y);
 	cout << x << " " << y << endl;
+
+	int z = 5;
+	int t = 6;
+	int *ptr1 = &z;
+	int *ptr2 = &t;
+	swap3(&ptr1, &ptr2);
+	cout << *ptr1 << " " << *ptr2 << endl;*/
+
+	Program5();
 
 	system("PAUSE");
 	return 0;
@@ -154,4 +166,22 @@ void swap2(int *x, int *y){
 	int fooVar = *x;
 	*x = *y;
 	*y = fooVar;
+}
+
+void swap3(int **ptr1, int **ptr2) {
+	int *fooPtr = *ptr1;
+	*ptr1 = *ptr2;
+	*ptr2 = fooPtr;
+}
+
+//7.5
+void Program5() {
+	char *oddOrEven = "Never odd or even ";
+	char *nthCharPtr = &oddOrEven[5];
+	nthCharPtr -=2;
+	char **pointerPtr = &nthCharPtr;
+	cout << pointerPtr << endl;
+	cout << **pointerPtr << endl;
+	nthCharPtr++;
+	cout << nthCharPtr - oddOrEven << endl;;
 }
