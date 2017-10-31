@@ -4,22 +4,44 @@
 
 using namespace std;
 
+const int LENGTH = 2;
+const int WIDTH = 3;
+
 int sum(const int x, const int y, const int z = 0, const int t = 0);
 double sum(const double x, const double y);
 int arbitrarySum(const int length, int totalNums[]);
 void Program_PI();
 void printArray(const int numbers[], const int totalLength);
 void reverseArray(int numbers[], const int totalLength);
+void transpose(const int input[][LENGTH], int output[][WIDTH]);
 
 int main() {
 
 	//Program_PI();
+	int num[WIDTH][LENGTH];
+	int numOut[LENGTH][WIDTH];
 
-	const int length = 7;
-	int num[length] = { 1,2,3,4,5,6,7 };
+	for (int i = 0; i < LENGTH; i++) {
+		for (int j = 0; j < WIDTH; j++) {
+			num[i][j] = i + j * 2;
+			cout << num[i][j] << " ";
+		}
+		cout << endl;
+	}
+
+	cout << endl;
+
+	transpose(num, numOut);
+
+	for (int i = 0; i < WIDTH; i++) {
+		for (int j = 0; j < LENGTH; j++) {
+			cout << numOut[i][j] << " ";
+		}
+		cout << endl;
+	}
 
 	//printArray(num, length);
-	reverseArray(num, length);
+	//reverseArray(num, length);
 
 	system("PAUSE");
 	return 0;
@@ -78,4 +100,12 @@ void reverseArray(int numbers[], const int totalLength){
 	}
 
 	printArray(numbers, totalLength);
+}
+
+void transpose(const int input[][LENGTH], int output[][WIDTH]) {
+	for (int i = 0; i < LENGTH; i++) {
+		for (int j = 0; j < WIDTH; j++) {
+			output[i][j] = input[j][i];
+		}
+	}
 }
