@@ -5,15 +5,6 @@ PointArray::PointArray() {
 	points = new Point[0];
 }
 
-PointArray::PointArray(const Point pts[], const int size) {
-	psize = size;
-	points = new Point[size];
-
-	for (int i = 0; i < size; i++) {
-		points[i] = pts[i];
-	}
-}
-
 PointArray::PointArray(const PointArray &o) {
 	psize = o.psize;
 	points = new Point[o.psize];
@@ -75,4 +66,14 @@ const int PointArray::getSize() const {
 
 void PointArray::clear() {
 	resize(0);
+}
+
+int Polygon::numPoly = 0;
+
+Polygon::Polygon(const Point pts[], const int length) : polyArray(pts, length) {
+	numPoly++;
+}
+
+Polygon::Polygon(const PointArray &pArray) : polyArray(pArray) {
+	numPoly++;
 }

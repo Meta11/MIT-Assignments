@@ -8,7 +8,6 @@ public:
 
 	void setX(const int new_x) { x = new_x; }
 	void setY(const int new_y) { y = new_y; }
-	void printPoint();
 
 private:
 	int x;
@@ -18,7 +17,14 @@ private:
 class PointArray {
 public:
 	PointArray();
-	PointArray(const Point pts[], const int size);
+	PointArray(const Point pts[], const int size) {
+		psize = size;
+		points = new Point[size];
+
+		for (int i = 0; i < size; i++) {
+			points[i] = pts[i];
+		}
+	}
 	PointArray(const PointArray &o);
 	~PointArray();
 
@@ -33,4 +39,21 @@ private:
 	int psize;
 	Point *points;
 	void resize(int n);
+};
+
+class Polygon {
+
+protected:
+	static int numPoly;
+	PointArray polyArray;
+
+public:
+	Polygon(const Point pts[], const int length);
+	Polygon(const PointArray &pArray);
+	~Polygon() { numPoly--; }
+
+	virtual double area() const = 0;
+	int getNumPolygons() { return numPoly; }
+	int getNumSides() { return polyArray.getSize(); }
+	const PointArray *getPoints() const { return &polyArray; }
 };
