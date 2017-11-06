@@ -16,7 +16,7 @@ int main() {
 	std::cout << std::endl;
 	ptArr.printArray();
 
-	ptArr.insert(2, Point(1,1));
+	ptArr.insert(2, Point(1, 1));
 
 	std::cout << std::endl;
 	ptArr.printArray();

@@ -34,7 +34,7 @@ void PointArray::printArray() const {
 }
 
 void PointArray::resize(int n) {
-	
+
 	Point *newPoints = new Point[n];
 
 	int minSize = (n > psize ? psize : n);
